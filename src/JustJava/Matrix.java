@@ -115,9 +115,6 @@ public class Matrix {
                 /**
                  * text in console will be more
                  */
-//                System.out.println("╭" + sole[0][0] + "x1    " + sole[0][1] + "x2    " + sole[0][2] + "x3");
-//                System.out.println("|" + sole[1][0] + "x1    " + sole[1][1] + "x2    " + sole[1][2] + "x3");
-//                System.out.println("╰" + sole[2][0] + "x1    " + sole[2][1] + "x2    " + sole[2][2] + "x3");
 
             }
         }
