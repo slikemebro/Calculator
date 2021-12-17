@@ -8,6 +8,9 @@ public class Test {
         String[] name = new String[29];
         names(name);
 
+        String[] numperPhone = new String[29];
+        numberPhone(numperPhone);
+
         String[] nickTelegram = new String[29];
         nicksTelegram(nickTelegram);
 
@@ -27,6 +30,41 @@ public class Test {
 
         }
 
+    }
+
+    private static String[] numberPhone(String[] numperPhone) {
+        numperPhone[0] = "";
+        numperPhone[1] = "";
+        numperPhone[2] = "";
+        numperPhone[3] = "";
+        numperPhone[4] = "";
+        numperPhone[5] = "";
+        numperPhone[6] = "";
+        numperPhone[7] = "";
+        numperPhone[8] = "";
+        numperPhone[9] = "";
+        numperPhone[10] = "";
+        numperPhone[11] = "";
+        numperPhone[12] = "";
+        numperPhone[13] = "";
+        numperPhone[14] = "";
+        numperPhone[15] = "";
+        numperPhone[16] = "";
+        numperPhone[17] = "";
+        numperPhone[18] = "";
+        numperPhone[19] = "";
+        numperPhone[20] = "";
+        numperPhone[21] = "";
+        numperPhone[22] = "";
+        numperPhone[23] = "";
+        numperPhone[24] = "";
+        numperPhone[25] = "";
+        numperPhone[26] = "";
+        numperPhone[27] = "";
+        numperPhone[28] = "";
+        numperPhone[29] = "";
+
+        return numperPhone;
     }
 
     private static String[] nicksTelegram(String[] nickTelegram) {
