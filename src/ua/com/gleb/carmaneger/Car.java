@@ -8,7 +8,7 @@ public class Car {
     int price;
     int weight;
     Color color;
-    private int distance;
+    private double distance;
 
     public Car(String name, int yearOfProduction, int price, int weight, Color color) {
         this.name = name;
@@ -23,7 +23,11 @@ public class Car {
         distance += additinalDistance;
     }
 
-    public int getDistance() {
+    public void adDistance(double additinalDistance){
+        distance += additinalDistance;
+    }
+
+    public double getDistance() {
         return distance;
     }
 
