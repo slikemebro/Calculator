@@ -8,6 +8,7 @@ public class Car {
     int price;
     int weight;
     Color color;
+    private int distance;
 
     public Car(String name, int yearOfProduction, int price, int weight, Color color) {
         this.name = name;
@@ -15,6 +16,19 @@ public class Car {
         this.price = price;
         this.weight = weight;
         this.color = color;
+        distance = 0;
+    }
+
+    public void adDistance(int additinalDistance){
+        distance += additinalDistance;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
     }
 
     @Override
@@ -24,7 +38,8 @@ public class Car {
                 ", yearOfProduction=" + yearOfProduction +
                 ", price=" + price +
                 ", weight=" + weight +
-                ", color='" + color + '\'' +
+                ", color=" + color +
+                ", distance=" + distance +
                 '}';
     }
 
