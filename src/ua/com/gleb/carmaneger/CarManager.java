@@ -8,6 +8,8 @@ public class CarManager {
         Car renault = new Car("Renault Laguna", 2000, 9700,
                 1600, Color.WHITE);
 
+        prius.adDistance(1000);
+        prius.adDistance(1123);
 
         System.out.println(prius);
         System.out.println(renault);
