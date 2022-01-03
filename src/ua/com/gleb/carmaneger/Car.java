@@ -27,10 +27,6 @@ public class Car {
         return distance;
     }
 
-    public void setDistance(int distance) {
-        this.distance = distance;
-    }
-
     @Override
     public String toString() {
         return "Car{" +
