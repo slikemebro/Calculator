@@ -35,7 +35,7 @@ public class Test {
     private static String[] numberPhone(String[] numperPhone) {
         numperPhone[0] = "";
         numperPhone[1] = "";
-        numperPhone[2] = "";
+        numperPhone[2] = "+380 93 346 6628";
         numperPhone[3] = "";
         numperPhone[4] = "";
         numperPhone[5] = "";
@@ -46,7 +46,7 @@ public class Test {
         numperPhone[10] = "";
         numperPhone[11] = "";
         numperPhone[12] = "";
-        numperPhone[13] = "";
+        numperPhone[13] = "+380 50 456 6161";
         numperPhone[14] = "";
         numperPhone[15] = "";
         numperPhone[16] = "";
@@ -54,15 +54,14 @@ public class Test {
         numperPhone[18] = "";
         numperPhone[19] = "";
         numperPhone[20] = "";
-        numperPhone[21] = "";
+        numperPhone[21] = "+380 96 522 5032";
         numperPhone[22] = "";
         numperPhone[23] = "";
         numperPhone[24] = "";
         numperPhone[25] = "";
-        numperPhone[26] = "";
+        numperPhone[26] = "+380 50 180 3205";
         numperPhone[27] = "";
-        numperPhone[28] = "";
-        numperPhone[29] = "";
+        numperPhone[28] = "+380 96 460 3501";
 
         return numperPhone;
     }
