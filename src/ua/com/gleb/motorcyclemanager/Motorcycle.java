@@ -10,6 +10,7 @@ public class Motorcycle {
     Color color;
     EngineType engineType;
     boolean isReadyToDrive;
+    private double distance = 0;
 
     public Motorcycle(String name, int yearOfProduction, int price, int weight,
                       Color color, EngineType engineType, boolean isReadyToDrive) {
@@ -22,17 +23,47 @@ public class Motorcycle {
         this.isReadyToDrive = isReadyToDrive;
     }
 
+    public void adDistance(int additinalDistance){
+        distance += additinalDistance;
+        if (distance >= 200_000){
+            destroyEngine();
+        }
+    }
+
+    public void adDistance(double additinalDistance){
+        distance += additinalDistance;
+        if (distance >= 200_000){
+            destroyEngine();
+        }
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public void repair(){
+        isReadyToDrive = true;
+    }
+
+    public void destroyEngine(){
+        isReadyToDrive = false;
+    }
+
+    public void changeColor(Color color){
+        this.color = color;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Motorcycle)) return false;
         Motorcycle that = (Motorcycle) o;
-        return isReadyToDrive == that.isReadyToDrive && Objects.equals(name, that.name) && color == that.color;
+        return isReadyToDrive == that.isReadyToDrive && Double.compare(that.getDistance(), getDistance()) == 0 && color == that.color;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, color, isReadyToDrive);
+        return Objects.hash(color, isReadyToDrive, getDistance());
     }
 
     @Override
@@ -42,9 +73,10 @@ public class Motorcycle {
                 ", yearOfProduction=" + yearOfProduction +
                 ", price=" + price +
                 ", weight=" + weight +
-                ", color=" + color.getColor() +
+                ", color=" + color +
                 ", engineType=" + engineType +
                 ", isReadyToDrive=" + isReadyToDrive +
+                ", distance=" + Math.round(distance) +
                 '}';
     }
 }

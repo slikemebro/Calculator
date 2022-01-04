@@ -9,10 +9,26 @@ public class MotorcycleManager {
         Motorcycle yamaha = new Motorcycle("Yamaha FZ1", 2007,
                 9000, 700, Color.ORANGE, EngineType.GAS, false);
 
+        System.out.println(suzuki);
+        System.out.println(yamaha);
+        System.out.println();
+
+        suzuki.adDistance(250000);
+        yamaha.adDistance(250000);
+        yamaha.changeColor(Color.BLACK);
+
+        System.out.println(suzuki);
+        System.out.println(yamaha);
+        System.out.println();
+
+        suzuki.repair();
+        yamaha.repair();
 
         System.out.println(suzuki);
         System.out.println(yamaha);
 
         System.out.println(yamaha.equals(suzuki));
+
+
     }
 }

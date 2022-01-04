@@ -20,6 +20,7 @@ public class Car {
     }
 
     public void adDistance(int additinalDistance){
+
         distance += additinalDistance;
     }
 
