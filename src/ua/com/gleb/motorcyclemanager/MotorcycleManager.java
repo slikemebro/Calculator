@@ -12,5 +12,7 @@ public class MotorcycleManager {
 
         System.out.println(suzuki);
         System.out.println(yamaha);
+
+        System.out.println(yamaha.equals(suzuki));
     }
 }

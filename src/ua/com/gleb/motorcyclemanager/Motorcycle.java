@@ -1,5 +1,7 @@
 package ua.com.gleb.motorcyclemanager;
 
+import java.util.Objects;
+
 public class Motorcycle {
     String name;
     int yearOfProduction;
@@ -20,6 +22,18 @@ public class Motorcycle {
         this.isReadyToDrive = isReadyToDrive;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Motorcycle)) return false;
+        Motorcycle that = (Motorcycle) o;
+        return isReadyToDrive == that.isReadyToDrive && Objects.equals(name, that.name) && color == that.color;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, color, isReadyToDrive);
+    }
 
     @Override
     public String toString() {
