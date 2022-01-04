@@ -2,13 +2,14 @@ package ua.com.gleb.carmaneger;
 
 import java.util.Objects;
 
-public class Car {
+public abstract class Car {
     String name;
     int yearOfProduction;
     int price;
     int weight;
     Color color;
     private double distance;
+    protected int distanceOnService = 0;
 
     public Car(String name, int yearOfProduction, int price, int weight, Color color) {
         this.name = name;
@@ -20,12 +21,19 @@ public class Car {
     }
 
     public void adDistance(int additinalDistance){
-
         distance += additinalDistance;
+        distanceOnService += additinalDistance;
     }
 
     public void adDistance(double additinalDistance){
         distance += additinalDistance;
+        distanceOnService += additinalDistance;
+    }
+
+    public abstract boolean isReadyToService();
+
+    public int getDistanceOnService() {
+        return distanceOnService;
     }
 
     public double getDistance() {
@@ -41,6 +49,7 @@ public class Car {
                 ", weight=" + weight +
                 ", color=" + color +
                 ", distance=" + distance +
+                ", distanceOnService=" + distanceOnService +
                 '}';
     }
 
