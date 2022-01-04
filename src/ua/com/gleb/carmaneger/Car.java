@@ -2,7 +2,7 @@ package ua.com.gleb.carmaneger;
 
 import java.util.Objects;
 
-public abstract class Car {
+public abstract class Car implements Serviceable{
     String name;
     int yearOfProduction;
     int price;
@@ -30,7 +30,7 @@ public abstract class Car {
         distanceOnService += additinalDistance;
     }
 
-    public abstract boolean isReadyToService();
+
 
     public int getDistanceOnService() {
         return distanceOnService;
