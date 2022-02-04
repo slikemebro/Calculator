@@ -1,31 +1,32 @@
 package ua.com.gleb.motorcyclemanager;
 
+import java.util.ArrayList;
+
+import java.util.List;
+
 public class MotorcycleManager {
     public static void main(String[] args) {
 
-        Motorcycle suzuki = new Motorcycle("Suzuki GSZ-R1000", 2021,
-                1600, 600, Color.BLACK, EngineType.DIESEL, true);
+        Motorcycle suzuki = new StreetBike("Suzuki GSZ-R1000", 2021,
+                1600, 600, Color.BLACK, TypeOfWheel.SOFT, EngineType.DIESEL, true);
 
-        Motorcycle yamaha = new Motorcycle("Yamaha FZ1", 2007,
-                9000, 700, Color.ORANGE, EngineType.GAS, false);
+        Motorcycle yamaha = new SportBike("Yamaha FZ1", 2007,
+                9000, 700, Color.ORANGE, TypeOfWheel.SPORT, EngineType.GAS, false);
 
-        System.out.println(suzuki);
-        System.out.println(yamaha);
+        List<Motorcycle> motorcycle = new ArrayList<>();
+
+        motorcycle.add(yamaha);
+        motorcycle.add(suzuki);
+
+        System.out.println(motorcycle);
         System.out.println();
 
         suzuki.adDistance(250000);
         yamaha.adDistance(250000);
         yamaha.changeColor(Color.BLACK);
 
-        System.out.println(suzuki);
-        System.out.println(yamaha);
-        System.out.println();
-
         suzuki.repair();
         yamaha.repair();
-
-        System.out.println(suzuki);
-        System.out.println(yamaha);
 
         System.out.println(yamaha.equals(suzuki));
 

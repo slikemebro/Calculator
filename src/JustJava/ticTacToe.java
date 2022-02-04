@@ -1,25 +1,23 @@
 package JustJava;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
-class Vehicle {
-    int passengers;
-    int fuelcap;
-    int mpg;
-}
+
 public class ticTacToe {
     public static void main(String args[]) {
-        String[] ar = new String[] {".txt", ".pas", ".cpp", ".bat", ".exe", ".gif", ".com", ".tmp"};
 
-        int a = 0;
-        int b = 0;
-        for (int i = 1; i < 25; i++){
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        System.out.println(a);
 
-            b++;
-            if (b == 3){
-                a++;
-                b = 0;
-            }
-        }
+        String i = "повторение";
+        String j = "Повторение";
+
+
+
     }
 }
 

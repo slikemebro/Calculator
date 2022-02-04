@@ -2,26 +2,28 @@ package ua.com.gleb.motorcyclemanager;
 
 import java.util.Objects;
 
-public class Motorcycle {
+public abstract class Motorcycle {
     String name;
     int yearOfProduction;
     int price;
     int weight;
     Color color;
+    TypeOfWheel typeOfWheel;
     EngineType engineType;
     boolean isReadyToDrive;
     private double distance = 0;
 
-    public Motorcycle(String name, int yearOfProduction, int price, int weight,
-                      Color color, EngineType engineType, boolean isReadyToDrive) {
+    public Motorcycle(String name, int yearOfProduction, int price, int weight, Color color, EngineType engineType, boolean isReadyToDrive) {
         this.name = name;
         this.yearOfProduction = yearOfProduction;
         this.price = price;
         this.weight = weight;
         this.color = color;
+        this.typeOfWheel = typeOfWheel;
         this.engineType = engineType;
         this.isReadyToDrive = isReadyToDrive;
     }
+
 
     public void adDistance(int additinalDistance){
         distance += additinalDistance;
