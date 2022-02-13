@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class Assignment2Part6 extends WindowProgram {
     //number of body caterpillar
-    private static final int NUM_CIRCLES = 12;
+    private static final int NUM_CIRCLES = 100;
 
     private static final int X = 0;
     private static final int Y_FOR_UP_CIRCLE = 0;

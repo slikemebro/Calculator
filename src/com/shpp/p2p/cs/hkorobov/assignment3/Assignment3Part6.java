@@ -9,7 +9,7 @@ import java.awt.*;
 public class Assignment3Part6 extends WindowProgram {
 
     /* The amount of time to pause between frames (50fps) */
-    private static final double PAUSE_TIME = 1000.0 / 50;
+    private static final double PAUSE_TIME = 10.0 / 100;
 
     /* The initial horizontal velocity of the car */
     private static final double HORIZONTAL_VELOCITY = 4.0;

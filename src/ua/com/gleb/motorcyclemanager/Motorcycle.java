@@ -26,16 +26,28 @@ public abstract class Motorcycle {
 
 
     public void adDistance(int additinalDistance){
-        distance += additinalDistance;
-        if (distance >= 200_000){
-            destroyEngine();
+        if (additinalDistance < 0){
+            System.out.println("Не так просто обойти програму");
+
+        }else {
+            distance += additinalDistance;
+            if (distance >= 200_000) {
+                destroyEngine();
+            }
         }
     }
 
+
+
     public void adDistance(double additinalDistance){
-        distance += additinalDistance;
-        if (distance >= 200_000){
-            destroyEngine();
+        if (additinalDistance < 0){
+            System.out.println("Не так просто обойти програму");
+
+        }else {
+            distance += additinalDistance;
+            if (distance >= 200_000) {
+                destroyEngine();
+            }
         }
     }
 

@@ -22,11 +22,11 @@ public class MotorcycleManager {
         System.out.println();
 
         suzuki.adDistance(250000);
-        yamaha.adDistance(250000);
+        yamaha.adDistance(2500);
+        yamaha.adDistance(-123);
         yamaha.changeColor(Color.BLACK);
 
-        suzuki.repair();
-        yamaha.repair();
+        System.out.println(motorcycle);
 
         System.out.println(yamaha.equals(suzuki));
 
