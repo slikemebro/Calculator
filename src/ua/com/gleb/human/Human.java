@@ -3,18 +3,24 @@ package ua.com.gleb.human;
 
 import java.util.Objects;
 
-public abstract class Human implements Interface{
-    protected String firstName;
-    protected String secondName;
-    protected int age;
-    protected Country country;
+
+
+public class Human implements Interface{
+    String firstName;
+    String secondName;
+    int age;
+    Country country;
     String dateOfBirthday;
     ColorOfHair colorOfHair;
     long id;
     int children;
     String dateOfDeath;
+    double weight;
+    private long money;
+    private long salary;
+    Sex sex;
 
-    public Human(String firstName, String secondName, int age, Country country, String dateOfBirthday, ColorOfHair colorOfHair, long id, int children) {
+    public Human(String firstName, String secondName, int age, Country country, String dateOfBirthday, ColorOfHair colorOfHair, long id, int children, double weight, long money, Sex sex) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.age = age;
@@ -23,8 +29,9 @@ public abstract class Human implements Interface{
         this.colorOfHair = colorOfHair;
         this.id = id;
         this.children = children;
-
-        checkId(id, firstName);
+        this.weight = weight;
+        this.money = money;
+        this.sex = sex;
     }
 
     public void death(String date){
@@ -47,17 +54,66 @@ public abstract class Human implements Interface{
         colorOfHair = color;
     }
 
-    public void checkId(long id, String firstName){
-        long check = (id / 100_000_000);
-        if (check > 1){
-            System.out.println(firstName + " you have a wrong Id, it should be 7 numbers");
-        }
-        check = id % 100_000_000;
-        if (check < 999_999){
-            System.out.println(firstName + " you have a wrong Id, it should be 7 numbers ");
-        }
+    public void checkId(){
+        Children.childrenCheckId(this.id / 100_000_000, this.firstName + " you have a wrong Id, it should be 7 numbers", this.id % 100_000_000, this.firstName + " you have a wrong Id, it should be 7 numbers ");
     }
 
+    public void takeShower() {
+        System.out.println(this.firstName + " take a shower.");
+    }
+
+    public void goToGym(int hours, TypeOfTrain typeOfTrain){
+
+        switch (typeOfTrain){
+            case SOFT:
+                double a = (this.weight / 150) * hours;
+                System.out.println("This soft train you lost " +
+                        a + " kilograms");
+                this.weight -= ((this.weight / 150) * hours);
+                break;
+
+            case HARD:
+                double b = (weight / 100) * hours;
+                System.out.println("This hard train you lost " +
+                        b + " kilograms");
+                weight -= ((weight / 100) * hours);
+                break;
+
+            case LIGHT:
+                double c = (this.weight / 200) * hours;
+                System.out.println("This light train you lost " +
+                        c + " kilograms");
+                this.weight -= c;
+                break;
+            default:
+                System.out.println("Try again something is wrong");
+               break;
+        }
+
+    }
+
+    public void shopping(long money){
+        this.money -= money;
+    }
+
+    public void changeSex(Sex changingSex){
+        this.sex = changingSex;
+    }
+
+    // GETTER; SETTER; TO STRING; EQUALS --->
+
+
+    public double getSalary() {
+        return (salary / 100f);
+    }
+
+    public void setSalary(long salary) {
+        this.salary = salary;
+    }
+
+    public double getMoney() {
+        return money / 100f;
+    }
 
     @Override
     public String toString() {
@@ -71,6 +127,8 @@ public abstract class Human implements Interface{
                 ", id=" + id +
                 ", children=" + children +
                 ", dateOfDeath='" + dateOfDeath + '\'' +
+                ", weight=" + weight +
+                ", money=" + money +
                 '}';
     }
 
