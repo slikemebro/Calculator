@@ -2,6 +2,7 @@ package ua.com.gleb.human;
 
 public class Children extends Human{
 
+
     public Children(String firstName, String secondName, int age, Country country, String dateOfBirthday, ColorOfHair colorOfHair, long id, int children, double weight, long money, Sex sex) {
         super(firstName, secondName, age, country, dateOfBirthday, colorOfHair, id, children, weight, money, sex);
     }
