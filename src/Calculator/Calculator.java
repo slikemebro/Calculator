@@ -23,6 +23,8 @@ public class Calculator extends JFrame{
     private JButton buttonMinus = new JButton("-");
     private JButton buttonPlus = new JButton("+");
     private JButton buttonEquals = new JButton("=");
+    private JButton buttonClear = new JButton("C");
+    private JButton buttonDot = new JButton(".");
     private JButton test12 = new JButton("test");
     private JTextField input = new JTextField("");
     private JLabel output = new JLabel("");
@@ -32,13 +34,10 @@ public class Calculator extends JFrame{
         this.setBounds(50, 50, 420, 540);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-//        this.add(input);
-//        input.setBounds(0, 0, 300, 100);
-
         this.add(output);
         output.setBounds(0,0,300,100);
-        output.setText("123");
-        output.setText("321");
+        output.setText("0");
+
 
         this.add(button1);
         button1.setBounds(0, 100, 100, 100);
@@ -70,6 +69,10 @@ public class Calculator extends JFrame{
         buttonPlus.setBounds(300,300,100,100);
         this.add(buttonEquals);
         buttonEquals.setBounds(300,400,100,100);
+        this.add(buttonClear);
+        buttonClear.setBounds(0,400,100,100);
+        this.add(buttonDot);
+        buttonDot.setBounds(200,400,100,100);
 
         this.add(test12);
         test12.setVisible(false);
@@ -89,6 +92,9 @@ public class Calculator extends JFrame{
         buttonMinus.addActionListener(new ListenerButtonMinus());
         buttonMultiply.addActionListener(new ListenerButtonMultiply());
         buttonDivision.addActionListener(new ListenerButtonDivision());
+        buttonClear.addActionListener(new ListenerButtonClear());
+        buttonDot.addActionListener(new ListenerButtonDot());
+
 
         buttonEquals.addActionListener(new ListenerButtonEquals());
     }
@@ -101,13 +107,12 @@ public class Calculator extends JFrame{
         @Override
         public void actionPerformed(ActionEvent e) {
             double answer;
-            String message = "";
-            message += number1 + " " + doing + " " + number2 + " = ";
             double integerNumber1 = Double.parseDouble(number1);
             double integerNumber2 = Double.parseDouble(number2);
+            String message = "";
             if (integerNumber2 == 0){
                 message = "You can division by zero";
-                JOptionPane.showMessageDialog(null, message, "Output", JOptionPane.PLAIN_MESSAGE);
+                output.setText(message);
                 number1 = "";
                 number2 = "";
                 doing = "";
@@ -132,11 +137,53 @@ public class Calculator extends JFrame{
                         break;
                     default:
                 }
-                JOptionPane.showMessageDialog(null, message, "Output", JOptionPane.PLAIN_MESSAGE);
-                number1 = "";
+                output.setText(number1 + " " + doing + " " + number2 + " = " + message);
+                number1 = message;
                 number2 = "";
-                doing = "";
-                a = 0;
+            }
+        }
+    }
+
+    class ListenerButtonClear implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            output.setText("0");
+            number1 = "";
+            number2 = "";
+            doing = "";
+            a = 0;
+        }
+    }
+
+    int number1OfDots = 0;
+    int number2OfDots = 0;
+
+    class ListenerButtonDot implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            if (a == 0){
+                if (number1OfDots == 0) {
+                    number1 += ".";
+                    output.setText(number1);
+                    number1OfDots++;
+                }else {
+                    number1 = number1.replaceAll("[^A-Za-zА-Яа-я0-9]", "");
+                    number1 += ".";
+                    output.setText(number1);
+                    number1OfDots++;
+                }
+            }else {
+                if (number2OfDots == 0) {
+                    number2 += ".";
+                    output.setText(number1 + " " + doing + " " + number2);
+                    number2OfDots++;
+                }else{
+                    number2 = number2.replaceAll("[^A-Za-zА-Яа-я0-9]", "");
+                    number2 += ".";
+                    output.setText(number2);
+                    number2OfDots++;
+                }
             }
         }
     }
@@ -146,6 +193,7 @@ public class Calculator extends JFrame{
         public void actionPerformed(ActionEvent e) {
             doing = "*";
             a++;
+            output.setText(number1 + " " + doing);
         }
     }
 
@@ -154,6 +202,7 @@ public class Calculator extends JFrame{
         public void actionPerformed(ActionEvent e) {
             doing = "+";
             a++;
+            output.setText(number1 + " " + doing);
         }
     }
 
@@ -162,6 +211,7 @@ public class Calculator extends JFrame{
         public void actionPerformed(ActionEvent e) {
             doing = "-";
             a++;
+            output.setText(number1 + " " + doing);
         }
     }
 
@@ -170,6 +220,7 @@ public class Calculator extends JFrame{
         public void actionPerformed(ActionEvent e) {
             doing = "/";
             a++;
+            output.setText(number1 + " " + doing);
         }
     }
 
@@ -178,8 +229,10 @@ public class Calculator extends JFrame{
         public void actionPerformed(ActionEvent e) {
             if (a == 0){
                 number1 += "1";
+                output.setText(number1);
             }else {
                 number2 += "1";
+                output.setText(number1 + " " + doing + " " + number2);
             }
         }
     }
@@ -189,8 +242,10 @@ public class Calculator extends JFrame{
         public void actionPerformed(ActionEvent e) {
             if (a == 0){
                 number1 += "2";
+                output.setText(number1);
             }else {
                 number2 += "2";
+                output.setText(number1 + " " + doing + " " + number2);
             }
         }
     }
@@ -200,8 +255,10 @@ public class Calculator extends JFrame{
         public void actionPerformed(ActionEvent e) {
             if (a == 0){
                 number1 += "3";
+                output.setText(number1);
             }else {
                 number2 += "3";
+                output.setText(number1 + " " + doing + " " + number2);
             }
         }
     }
@@ -211,8 +268,10 @@ public class Calculator extends JFrame{
         public void actionPerformed(ActionEvent e) {
             if (a == 0){
                 number1 += "4";
+                output.setText(number1);
             }else {
                 number2 += "4";
+                output.setText(number1 + " " + doing + " " + number2);
             }
         }
     }
@@ -222,8 +281,10 @@ public class Calculator extends JFrame{
         public void actionPerformed(ActionEvent e) {
             if (a == 0){
                 number1 += "5";
+                output.setText(number1);
             }else {
                 number2 += "5";
+                output.setText(number1 + " " + doing + " " + number2);
             }
         }
     }
@@ -233,8 +294,10 @@ public class Calculator extends JFrame{
         public void actionPerformed(ActionEvent e) {
             if (a == 0){
                 number1 += "6";
+                output.setText(number1);
             }else {
                 number2 += "6";
+                output.setText(number1 + " " + doing + " " + number2);
             }
         }
     }
@@ -244,8 +307,10 @@ public class Calculator extends JFrame{
         public void actionPerformed(ActionEvent e) {
             if (a == 0){
                 number1 += "7";
+                output.setText(number1);
             }else {
                 number2 += "7";
+                output.setText(number1 + " " + doing + " " + number2);
             }
         }
     }
@@ -255,8 +320,10 @@ public class Calculator extends JFrame{
         public void actionPerformed(ActionEvent e) {
             if (a == 0){
                 number1 += "8";
+                output.setText(number1);
             }else {
                 number2 += "8";
+                output.setText(number1 + " " + doing + " " + number2);
             }
         }
     }
@@ -266,8 +333,10 @@ public class Calculator extends JFrame{
         public void actionPerformed(ActionEvent e) {
             if (a == 0){
                 number1 += "9";
+                output.setText(number1);
             }else {
                 number2 += "9";
+                output.setText(number1 + " " + doing + " " + number2);
             }
         }
     }
@@ -277,23 +346,11 @@ public class Calculator extends JFrame{
         public void actionPerformed(ActionEvent e) {
             if (a == 0){
                 number1 += "0";
+                output.setText(number1);
             }else {
                 number2 += "0";
+                output.setText(number1 + " " + doing + " " + number2);
             }
         }
     }
-
-
-//    class ButtonEventListener implements ActionListener{
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            String message = "";
-//            message += "Button was pressed\n";
-//            message += "Text is " + input.getText() + "\n";
-//            message += (radio1.isSelected() ? "Radio #1" : "Radio #2") + " is selected\n";
-//            message += "Checkbox is " + ((check.isSelected()) ? "checked" : "unchecked");
-//            JOptionPane.showMessageDialog(null, message, "Output", JOptionPane.PLAIN_MESSAGE);
-//        }
-//    }
-
 }
