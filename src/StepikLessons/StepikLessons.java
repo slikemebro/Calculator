@@ -1,27 +1,51 @@
 package StepikLessons;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.Scanner;
 
 public class StepikLessons {
-    public static void main(String[] args) {
-        try(PrintStream printStream = new PrintStream("C://java p2p//notes3.txt"))
-        {
-            printStream.print("Hello World!");
-            printStream.println("Welcome to Java!");
+    public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        try (FileReader reader = new FileReader("input.txt")) {
 
-            printStream.printf("Name: %s Age: %d \n", "Tom", 34);
+            scanner = new Scanner(reader);
 
-            String message = "PrintStream";
-            byte[] message_toBytes = message.getBytes();
-            printStream.write(message_toBytes);
 
-            System.out.println("The file has been written");
-        }
-        catch(IOException ex){
+            double value1 = Double.parseDouble(scanner.next());
+            String operation = scanner.next();
+            double value2 = Double.parseDouble(scanner.next());
 
-            System.out.println(ex.getMessage());
+            switch (operation) {
+                case "+":
+                    System.out.println(value1 + value2);
+                    break;
+                case "-":
+                    System.out.println(value1 - value2);
+                    break;
+                case "*":
+                    System.out.println(value1 * value2);
+                    break;
+                case "/":
+                    if (value2 == 0) {
+                        throw new ArithmeticException();
+                    }
+                    System.out.println(value1 / value2);
+                    break;
+                default:
+                    throw new UnsupportedOperationException();
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error! Wrong file");
+        } catch (NumberFormatException e) {
+            System.out.println("Error! Not number");
+        } catch (UnsupportedOperationException e) {
+            System.out.println("Operation Error!");
+        } catch (ArithmeticException e) {
+            System.out.println("Error! Division by zero");
+        } finally {
+
+            scanner.close();
+
         }
     }
 }
