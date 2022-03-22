@@ -28,7 +28,6 @@ public class TrafficLights extends WindowProgram {
 
         liveTrafficLights(redOval, yellowOval, greenOval);
 
-//        redColorOn(redOval, greenOval, yellowOval);
     }
 
     private void liveTrafficLights(GOval redOval, GOval yellowOval, GOval greenOval) {
@@ -42,9 +41,6 @@ public class TrafficLights extends WindowProgram {
 
             time++;
         }
-
-
-
     }
 
     private void greenColorOn(GOval redOval, GOval greenOval, GOval yellowOval) {
